@@ -138,6 +138,19 @@
     <dmn:informationRequirement id="_62095A89-6EAB-4A1E-ABA1-1A9261C5CCF8">
       <dmn:requiredDecision href="#_1F4529CF-A750-4E00-AEB7-5982A25F8D26"/>
     </dmn:informationRequirement>
+    <dmn:context id="_4E070938-9797-461D-9CAA-89C76D38ACB8">
+      <dmn:contextEntry>
+        <dmn:variable id="_19D7CA4B-4433-4186-83F0-43E4BDA5623B" name="Total Points" typeRef="number"/>
+        <dmn:literalExpression id="_E7C06EF8-2E44-4CC6-8A7A-ED05EDB4522B">
+          <dmn:text>Driver.Points + Fine.Points</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_0D3FA925-1678-40AC-B83A-2719ED16CCE0">
+          <dmn:text>if Total Points >= 20 then "Yes" else "No"</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
   </dmn:decision>
   <dmn:inputData id="_C2A5F57A-8CC6-47E6-9150-F8432DB440E0" name="Violation">
     <dmn:extensionElements/>
@@ -149,11 +162,22 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_FBB194C2-3DE9-434B-94DA-C4D7EBD59968">
             <kie:width>50.0</kie:width>
-            <kie:width>218.0</kie:width>
+            <kie:width>296.0</kie:width>
             <kie:width>304.0</kie:width>
             <kie:width>100.0</kie:width>
             <kie:width>100.0</kie:width>
             <kie:width>163.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4E070938-9797-461D-9CAA-89C76D38ACB8">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>300.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E7C06EF8-2E44-4CC6-8A7A-ED05EDB4522B">
+            <kie:width>300.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0D3FA925-1678-40AC-B83A-2719ED16CCE0">
+            <kie:width>300.0</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
