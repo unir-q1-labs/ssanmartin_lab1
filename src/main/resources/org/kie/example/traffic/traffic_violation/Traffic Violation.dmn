@@ -1,11 +1,84 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_D16D30A7-3D8A-4B04-9235-A2FF3C10339F" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_91AF9A94-4C86-4B7A-8257-5EF382BF95DF" name="Traffic Violation" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_D16D30A7-3D8A-4B04-9235-A2FF3C10339F">
   <dmn:extensionElements/>
+  <dmn:inputData id="_FC601C87-A5CF-497D-82B4-382A39F8FB49" name="Driver">
+    <dmn:extensionElements/>
+    <dmn:variable id="_4AE1859A-AA61-487D-9638-06DC8EA0A443" name="Driver"/>
+  </dmn:inputData>
+  <dmn:decision id="_1F4529CF-A750-4E00-AEB7-5982A25F8D26" name="Fine">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5522C102-94A0-4D31-B481-964376D2EEF3" name="Fine"/>
+    <dmn:informationRequirement id="_D8D8DB60-78EC-44B8-AF3B-C7F9A7F428FB">
+      <dmn:requiredInput href="#_C2A5F57A-8CC6-47E6-9150-F8432DB440E0"/>
+    </dmn:informationRequirement>
+  </dmn:decision>
+  <dmn:decision id="_0CA382FD-FA01-4724-989A-2A091BA03F7C" name="Should the driver be suspended?">
+    <dmn:extensionElements/>
+    <dmn:variable id="_7329E211-CD88-4861-B5D9-9F089A37BFE1" name="Should the driver be suspended?"/>
+    <dmn:informationRequirement id="_A59B35AC-E7FF-48F9-A486-3D05C10AD722">
+      <dmn:requiredInput href="#_FC601C87-A5CF-497D-82B4-382A39F8FB49"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_62095A89-6EAB-4A1E-ABA1-1A9261C5CCF8">
+      <dmn:requiredDecision href="#_1F4529CF-A750-4E00-AEB7-5982A25F8D26"/>
+    </dmn:informationRequirement>
+  </dmn:decision>
+  <dmn:inputData id="_C2A5F57A-8CC6-47E6-9150-F8432DB440E0" name="Violation">
+    <dmn:extensionElements/>
+    <dmn:variable id="_29C23F0B-0792-4291-B11B-9A3FD2F1E43A" name="Violation"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
         <kie:ComponentsWidthsExtension/>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-_1F4529CF-A750-4E00-AEB7-5982A25F8D26" dmnElementRef="_1F4529CF-A750-4E00-AEB7-5982A25F8D26" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="764" y="270" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_0CA382FD-FA01-4724-989A-2A091BA03F7C" dmnElementRef="_0CA382FD-FA01-4724-989A-2A091BA03F7C" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="650" y="134" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_C2A5F57A-8CC6-47E6-9150-F8432DB440E0" dmnElementRef="_C2A5F57A-8CC6-47E6-9150-F8432DB440E0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="763" y="406" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_FC601C87-A5CF-497D-82B4-382A39F8FB49" dmnElementRef="_FC601C87-A5CF-497D-82B4-382A39F8FB49" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="483.5981308411215" y="406" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_D8D8DB60-78EC-44B8-AF3B-C7F9A7F428FB" dmnElementRef="_D8D8DB60-78EC-44B8-AF3B-C7F9A7F428FB">
+        <di:waypoint x="813" y="406"/>
+        <di:waypoint x="814" y="320"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_A59B35AC-E7FF-48F9-A486-3D05C10AD722" dmnElementRef="_A59B35AC-E7FF-48F9-A486-3D05C10AD722">
+        <di:waypoint x="533.5981308411215" y="406"/>
+        <di:waypoint x="700" y="184"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_62095A89-6EAB-4A1E-ABA1-1A9261C5CCF8" dmnElementRef="_62095A89-6EAB-4A1E-ABA1-1A9261C5CCF8">
+        <di:waypoint x="814" y="270"/>
+        <di:waypoint x="700" y="184"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </dmn:definitions>
