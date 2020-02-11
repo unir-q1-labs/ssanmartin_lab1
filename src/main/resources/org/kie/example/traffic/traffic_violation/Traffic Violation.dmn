@@ -56,6 +56,76 @@
     <dmn:informationRequirement id="_D8D8DB60-78EC-44B8-AF3B-C7F9A7F428FB">
       <dmn:requiredInput href="#_C2A5F57A-8CC6-47E6-9150-F8432DB440E0"/>
     </dmn:informationRequirement>
+    <dmn:decisionTable id="_FBB194C2-3DE9-434B-94DA-C4D7EBD59968" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_0E86A441-BBC0-45C0-8428-E23D308B8251">
+        <dmn:inputExpression id="_18197E11-E1FC-4A0E-BE61-1AE18BC3873B" typeRef="string">
+          <dmn:text>Violation.Type</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_464AE39D-7670-434E-9864-3808DD537B4A">
+        <dmn:inputExpression id="_3452A9CA-ECA1-4968-A111-B37B2E5EA2D5" typeRef="number">
+          <dmn:text>Violation.Actual Speed - Violation.Speed Limit</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_8F3B4516-7A1C-4224-B856-8B79745B1772" name="Amount" typeRef="number"/>
+      <dmn:output id="_8A53BCE2-F4DF-4A9F-BE43-737EFB9C215E" name="Points" typeRef="number"/>
+      <dmn:rule id="_42688114-E423-4BFC-ACF0-A2606FF27ADF">
+        <dmn:inputEntry id="_D22F404E-56A4-4B30-90B5-388825A9B03E">
+          <dmn:text>"speed"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5792EAC8-0C59-496D-B9DC-5581A64B0464">
+          <dmn:text>[10..30]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4056B904-490C-40FC-8878-1FE45CA5AAB2">
+          <dmn:text>500</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_5D0AD3FF-E251-4058-A823-4100939B7CC4">
+          <dmn:text>3</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_85178A36-8427-4E29-B4C8-A799913BEA7E">
+        <dmn:inputEntry id="_A52DD536-36DF-43F6-9A60-446EF29427CC">
+          <dmn:text>"speed"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C4CDA97B-2235-4255-B72A-2D4C23470947">
+          <dmn:text>&gt;=30</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3DA9DEB7-5455-4F2D-9C68-2FADEC78F61A">
+          <dmn:text>1000</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_CD81A4DE-AB17-4A50-B652-1B9EA0EC96F1">
+          <dmn:text>7</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_8E5E0322-DF8B-4E2E-96F8-5BDCB640374D">
+        <dmn:inputEntry id="_6CD52A07-3382-4FE0-B9CC-2734DD8769DE">
+          <dmn:text>"parking"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3C8698BA-4CFE-41C0-88C9-6EE0199B46FB">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9046D353-2E12-40ED-8C3A-A089D34719F9">
+          <dmn:text>100</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_479F6A3D-F1E6-412D-8F9B-63F4AF08BE38">
+          <dmn:text>1</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_2F133B92-CBE4-47C7-A65A-9F01DCF0BF0B">
+        <dmn:inputEntry id="_187364B0-7958-4FF3-860D-274AD1D73AAA">
+          <dmn:text>"driving under the influence"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D28F866E-C442-42AB-9B46-DFE45AFF4396">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_B9896001-47EA-4223-894C-8D037437CC02">
+          <dmn:text>1000</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_F402ABD6-892C-4757-BE79-0A2FC9B647D5">
+          <dmn:text>5</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
   </dmn:decision>
   <dmn:decision id="_0CA382FD-FA01-4724-989A-2A091BA03F7C" name="Should the driver be suspended?">
     <dmn:extensionElements/>
@@ -76,7 +146,16 @@
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_FBB194C2-3DE9-434B-94DA-C4D7EBD59968">
+            <kie:width>50.0</kie:width>
+            <kie:width>218.0</kie:width>
+            <kie:width>304.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>163.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-_1F4529CF-A750-4E00-AEB7-5982A25F8D26" dmnElementRef="_1F4529CF-A750-4E00-AEB7-5982A25F8D26" isCollapsed="false">
         <dmndi:DMNStyle>
