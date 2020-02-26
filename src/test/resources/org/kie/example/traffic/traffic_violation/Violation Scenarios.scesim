@@ -126,7 +126,7 @@
           <expressionAlias>Actual Speed</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>167.28571428571428</columnWidth>
+          <columnWidth>157.28571428571428</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
